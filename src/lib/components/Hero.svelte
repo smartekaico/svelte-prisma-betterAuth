@@ -1,4 +1,4 @@
-<div class="h-screen bg-noise flex items-center justify-center text-6xl font-bold text-white">
+<div class="min-h-screen bg-noise flex items-center justify-center text-6xl font-bold text-white">
 	<div class="flex flex-col items-center justify-center">
 		<img
 			src="https://avatars.githubusercontent.com/u/10477803?v=4"
