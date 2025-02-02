@@ -5,7 +5,8 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			auth: import("@auth/core").Session | null;
+			logtoClient: LogtoClient;
+			user?: UserInfoResponse;
 		}
 		// interface PageData {}
 		// interface PageState {}
@@ -13,10 +14,12 @@ declare global {
 	}
 }
 
-declare module "@auth/core/types" {
+declare module '@auth/core/types' {
 	interface User {
 		role?: string;
 	}
 }
+
+import type { LogtoClient, UserInfoResponse } from '@logto/sveltekit';
 
 export {};

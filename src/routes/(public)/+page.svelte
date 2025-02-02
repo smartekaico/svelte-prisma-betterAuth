@@ -3,6 +3,17 @@
 	import Products from '../../lib/components/Products.svelte';
 	import Faqs from '../../lib/components/Faqs.svelte';
 	import Footer from '../../lib/components/Footer.svelte';
+	import type { LayoutData } from '../$types';
+	import type { Snippet } from 'svelte';
+
+	interface PageData extends LayoutData {
+		user: {
+			id: string;
+			email: string;
+		} | null;
+	}
+
+	let { data, children }: { data: PageData; children: Snippet } = $props();
 </script>
 
 <svelte:head>
@@ -10,9 +21,19 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<main class="container mx-auto px-4 py-8">
+<main class="@container mx-auto px-4 py-8">
 	<Hero />
 
+	<form method="POST" action="?/{data.user ? 'signOut' : 'signIn'}">
+		<button class="btn btn-xl" type="submit">Sign {data.user ? 'out' : 'in'}</button>
+	</form>
+	{#if data.user}
+		<ul>
+			{#each Object.entries(data.user) as [key, value]}
+				<li>{key}: {value}</li>
+			{/each}
+		</ul>
+	{/if}
 	<Products />
 
 	<section class="my-16">
