@@ -9,6 +9,6 @@
 <div class="flex flex-col items-center justify-center py-6">
 	<RandomNum />
 	<br />
-	<br />
+	<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 	<Counter />
 </div>

@@ -59,6 +59,7 @@
 	<p bind:this={historyTag}>History: {history}</p>
 
 	<button
+		class="btn btn-outline btn-primary"
 		onclick={() => {
 			history = [...history, randNum];
 			randNum = Math.floor(Math.random() * 10);
