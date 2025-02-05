@@ -2,9 +2,9 @@
 	import Hero from '../../lib/components/Hero.svelte';
 	import Products from '../../lib/components/Products.svelte';
 	import Faqs from '../../lib/components/Faqs.svelte';
-	import Footer from '../../lib/components/Footer.svelte';
 	import type { LayoutData } from '../$types';
 	import type { Snippet } from 'svelte';
+	import RandomNum from '$lib/components/RandomNum.svelte';
 
 	interface PageData extends LayoutData {
 		user: {
@@ -21,12 +21,15 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<main class="@container mx-auto px-4 py-8">
+<main>
 	<Hero />
 
-	<form method="POST" action="?/{data.user ? 'signOut' : 'signIn'}">
-		<button class="btn btn-xl" type="submit">Sign {data.user ? 'out' : 'in'}</button>
-	</form>
+	<div class="flex items-center justify-center">
+		<form method="POST" action="?/{data.user ? 'signOut' : 'signIn'}">
+			<button class="btn btn-xl" type="submit">Sign {data.user ? 'out' : 'in'}</button>
+		</form>
+	</div>
+
 	{#if data.user}
 		<ul>
 			{#each Object.entries(data.user) as [key, value]}
