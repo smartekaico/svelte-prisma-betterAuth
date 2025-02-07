@@ -29,7 +29,9 @@
 		class="btn join-item"
 		onclick={() => {
 			count = 0;
-			frequency = 1000;
+			const _originalFrequency = frequency;
+			frequency = 0;
+			frequency = _originalFrequency;
 		}}>Reset</button
 	>
 </div>

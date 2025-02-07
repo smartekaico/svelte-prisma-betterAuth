@@ -4,7 +4,6 @@
 	import Faqs from '../../lib/components/Faqs.svelte';
 	import type { LayoutData } from '../$types';
 	import type { Snippet } from 'svelte';
-	import RandomNum from '$lib/components/RandomNum.svelte';
 
 	interface PageData extends LayoutData {
 		user: {
